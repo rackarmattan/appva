@@ -1,6 +1,6 @@
 import React from "react";
 import DatePicker from "react-datepicker";
-
+import "./App.css"
 import "react-datepicker/dist/react-datepicker.css";
 
 // CSS Modules, react-datepicker-cssmodules.css
@@ -35,8 +35,9 @@ class App extends React.Component {
     return (
 
       <div id="parent">
-        <h1>Welcome! Pick a date</h1>
-
+        <div id="header">
+          <h1 id="welcome">Welcome! Pick a date</h1>
+        </div>
         <DatePicker
           selected={this.state.stopDate}
           onChange={this.handleChange}
