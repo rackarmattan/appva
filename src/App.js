@@ -20,7 +20,10 @@ class App extends React.Component {
     this.setState({
       stopDate: date
     });
+  }
 
+  handleChangeRaw = (e) => {
+    e.preventDefault();
   }
 
   countDaysLeft = function () {
@@ -37,10 +40,10 @@ class App extends React.Component {
         <DatePicker
           selected={this.state.stopDate}
           onChange={this.handleChange}
+          onChangeRaw={this.handleChangeRaw}
         />
 
-        <h2>{this.state.stopDate.toLocaleDateString("en-US")}</h2>
-        <h2>Days left: {this.countDaysLeft()}</h2>
+        <h2>{this.countDaysLeft()} days left until {this.state.stopDate.toLocaleDateString("en-US")}</h2>
       </div>
 
     );
