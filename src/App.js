@@ -11,22 +11,20 @@ class App extends React.Component {
     super(props);
     this.state = {
       startDate: new Date(),
-      stopDate: new Date(),
-      daysLeft: 0
+      stopDate: new Date()
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(date) {
     this.setState({
-      stopDate: date,
-      daysLeft: this.countDaysLeft()
+      stopDate: date
     });
+
   }
 
   countDaysLeft = function () {
-    let oneDay = 24 * 60 * 60 * 1000;
-    //return 1
+    const oneDay = 24 * 60 * 60 * 1000;
     return Math.round(Math.abs((this.state.startDate.getTime() - this.state.stopDate.getTime()) / (oneDay)))
   }
 
@@ -42,7 +40,7 @@ class App extends React.Component {
         />
 
         <h2>{this.state.stopDate.toLocaleDateString("en-US")}</h2>
-        <h2>Days left: {this.state.daysLeft}</h2>
+        <h2>Days left: {this.countDaysLeft()}</h2>
       </div>
 
     );
